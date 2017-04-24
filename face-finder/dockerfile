@@ -5,3 +5,6 @@ RUN git clone https://github.com/multimedia-term-project/face-finder.git
 WORKDIR face-finder
 
 RUN pip install -r requirements.txt
+
+# Serve the app
+CMD ["python", "main.py"]
