@@ -1,0 +1,7 @@
+FROM python:3.6-alpine
+
+RUN git clone https://github.com/multimedia-term-project/face-finder.git
+
+WORKDIR face-finder
+
+RUN pip install -r requirements.txt
