@@ -7,3 +7,6 @@ WORKDIR web-ui-v2/denvr-web-ui/
 RUN npm install
 
 EXPOSE 4200
+
+# Serve the app
+CMD ["npm", "start"]
