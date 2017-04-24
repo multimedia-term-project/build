@@ -14,12 +14,12 @@ services:
       - "8002:3000"
     links:
       - mongo
-      - kafka
+      - rabbitmq
 
   face-finder:
     build: face-finder
     links:
-      - kafka
+      - rabbitmq
       - redis
 
   mongo:
@@ -27,17 +27,10 @@ services:
     ports :
        - "27017:27017"
 
- zookeeper:
-    image: wurstmeister/zookeeper
-
-  kafka:
-    image: wurstmeister/kafka
-
-    depends_on:
-      - zookeeper
-    environment:
-      HOSTNAME_COMMAND: "route -n | awk '/UG[ \t]/{print $$2}'"
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+ rabbitmq:
+   image: rabbitmq:alpine
+   ports:
+     - "5672:5672"
 
   redis:
     image: redis:alpine
