@@ -1,12 +1,15 @@
-FROM python:3.6-alpine
+FROM python:3.6
 
 RUN git clone https://github.com/multimedia-term-project/face-finder.git
 
-WORKDIR face-finder
+WORKDIR face-finder/
 
-COPY ../aws.config.json .
+RUN ls ~
+#CMD ["pip", "install", "-r", "requirements.txt"]
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip install -r requirements.txt
+
+COPY aws.config.json .
 
 # Serve the app
 CMD ["python", "main.py"]

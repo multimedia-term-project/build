@@ -27,10 +27,13 @@ services:
     ports :
        - "27017:27017"
 
- rabbitmq:
-   image: rabbitmq:alpine
-   ports:
+  rabbitmq:
+    image: rabbitmq:alpine
+    ports:
      - "5672:5672"
+     - "25672:25672"
 
   redis:
     image: redis:alpine
+    ports:
+      - "6379:6379"
