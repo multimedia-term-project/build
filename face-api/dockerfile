@@ -1,0 +1,13 @@
+FROM python:3.6
+
+RUN git clone https://github.com/multimedia-term-project/face-api.git
+
+WORKDIR face-api/
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+
+RUN export FLASK_APP=app.py
+
+# Serve the app
+CMD ["flask", "run"]
