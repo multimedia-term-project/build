@@ -7,7 +7,7 @@ WORKDIR face-api/
 RUN pip install --no-cache-dir -r requirements.txt
 
 
-RUN export FLASK_APP=app.py
+ENV FLASK_APP app.py
 
 # Serve the app
 CMD ["flask", "run"]
